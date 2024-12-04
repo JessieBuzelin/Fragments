@@ -85,6 +85,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float timeOffGround = 0.2f;
 
     [Header("Fragments")]
+    [SerializeField] GameObject fragmentCanvas;
     [SerializeField] bool canMove;
     [SerializeField] bool canJump;
     [SerializeField] bool canDash;
@@ -432,18 +433,26 @@ public class PlayerController : MonoBehaviour
         {
             case "Move":
                 canMove = true;
+                fragmentCanvas.SetActive(true);
+                fragmentCanvas.transform.GetChild(0).gameObject.SetActive(true);
                 Destroy(collision.gameObject);
                 break;
             case "Jump":
                 canJump = true;
+                fragmentCanvas.SetActive(true);
+                fragmentCanvas.transform.GetChild(1).gameObject.SetActive(true);
                 Destroy(collision.gameObject);
                 break;
             case "Dash":
                 canDash = true;
+                fragmentCanvas.SetActive(true);
+                fragmentCanvas.transform.GetChild(2).gameObject.SetActive(true);
                 Destroy(collision.gameObject);
                 break;
             case "WallClimb":
                 canWallClimb = true;
+                fragmentCanvas.SetActive(true);
+                fragmentCanvas.transform.GetChild(3).gameObject.SetActive(true);
                 Destroy(collision.gameObject);
                 break;
             case "Death":
